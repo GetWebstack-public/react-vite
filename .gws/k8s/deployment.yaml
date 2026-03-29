@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-vite
+  namespace: react-vite
+  labels:
+    app: react-vite
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-vite
+  template:
+    metadata:
+      labels:
+        app: react-vite
+    spec:
+      containers:
+      - name: react-vite
+        image: react-vite
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5173
+          name: http
+          protocol: TCP
+      restartPolicy: Always
