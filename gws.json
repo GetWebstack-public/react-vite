@@ -1,0 +1,23 @@
+{
+  "name": "react-vite",
+  "version": "1.0.0",
+  "registry": {
+    "mode": "local"
+  },
+  "services": [
+    {
+      "name": "react-vite",
+      "path": ".",
+      "image": "react-vite",
+      "manifests": ".gws/k8s",
+      "dockerfile": ".gws/Dockerfile"
+    }
+  ],
+  "provision": {
+    "environments": {
+      "dev": {
+        "type": "k3d"
+      }
+    }
+  }
+}
